@@ -12,15 +12,25 @@ Print YES, if the boys can divide the watermelon into two parts, each of them we
 
 /*How to determine if a number can be split into even parts?*/
 
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
   int w;
   cin >> w;
 
-  if (w % 2 == 0) {
-    
+  if (w % 2 == 0 and w != 2){
+    int x = 2;
+    int y;
+    while (x <= w/2) {
+      y = w - x;
+      if (y % 2 == 0) {
+        cout << "YES";
+        return 0;
+      }
+
+      x += 2;
+    }
   } else {
     cout << "NO";
   }
