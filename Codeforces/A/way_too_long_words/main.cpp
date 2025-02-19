@@ -32,8 +32,8 @@ int main()
             string new_word;
 
             int x = word.length() - 2;
-        std:
-            string s = std::to_string(x);
+
+            string s = to_string(x);
             new_word = word[0] + s + word[word.length() - 1];
             words[i] = new_word;
         }
