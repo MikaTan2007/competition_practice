@@ -35,52 +35,38 @@ int main()
         'y',
         'z'};
 
-    int x_value = 0;
     int i;
+
     for (i = 0; i < x.length(); i++)
     {
-        int value = 0;
-        for (value = 0; value < 26; value++)
+        if (tolower(x[i]) != tolower(y[i]))
         {
-            if (tolower(x[i]) == order[value])
+            int l = 0;
+            int x_value = 0;
+            int y_value = 0;
+            for (l = 0; l < 26; l++)
             {
-                cout << "Character: " + to_string(x[i]) + "\n";
-                cout << "Value: " + to_string(value + 1) + "\n";
-                x_value += value + 1;
+                if (order[l] == tolower(x[i]))
+                {
+                    x_value += (l + 1);
+                }
+                else if (order[l] == tolower(y[i]))
+                {
+                    y_value += (l + 1);
+                }
+            }
+
+            if (x_value > y_value)
+            {
+                cout << 1;
+                return 0;
+            }
+            else if (x_value < y_value)
+            {
+                cout << -1;
+                return 0;
             }
         }
     }
-
-    int y_value = 0;
-    i = 0;
-    for (i = 0; i < y.length(); i++)
-    {
-        int value = 0;
-        for (value = 0; value < 26; value++)
-        {
-            if (tolower(y[i]) == order[value])
-            {
-                cout << "Character: " + to_string(y[i]) + "\n";
-                cout << "Value: " + to_string(value + 1) + "\n";
-                y_value += value + 1;
-            }
-        }
-    }
-
-    cout << "X_Value" + to_string(x_value) + "\n";
-
-    cout << "Y_Value" + to_string(y_value);
-
-    if (x_value == y_value)
-    {
-        cout << 0;
-    }
-    else if (x_value > y_value)
-    {
-        cout << 1;
-    }
-    else
-    {
-        cout << -1;
-    }
+    cout << 0;
 }
